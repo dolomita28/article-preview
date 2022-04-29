@@ -30,8 +30,9 @@ body{
     border-radius: 1rem;
     width: 50vw;
     display: grid;
-    grid-template-columns: 35% 65%;
-    grid-template-rows: 30rem;    
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 39rem;   
+    box-shadow: 0px 10px 13px -7px #48556a; 
 }
 .card-img{
     border-top-left-radius: 1rem;
@@ -47,14 +48,20 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    position: relative;
 }
 .hard, .name{ 
     color: var(--Very-Dark-Grayish-Blue);
     font-weight: 700;
+    font-size: 3rem;
+}
+.name{
+    font-size: 1.8rem;
 }
 .soft, .date{
     color: var(--grayish-blue);
     font-weight: 500;
+    font-size: 1.3rem;
 }
 .share{
     display: flex;
@@ -72,37 +79,93 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;    
-    padding-left: 2rem;
+    padding-left: 2rem;    
 }
 
 .share-lnk{
     background-color: var(--grayish-blue);
     padding: 1rem;
-    border-radius: 50%;   
+    border-radius: 50%;  
+    cursor: pointer; 
 }
 
+.tooltip{
+    position: absolute;
+    bottom: 10rem;
+    right: -7rem;
+    width:25rem;
+    height: 5rem;
+    border-radius: 1rem;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.tooltip::before{
+    border: 2rem solid var(--Very-Dark-Grayish-Blue);
+    content: '';
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    bottom: -4rem;
+    left: calc(50% - 2rem)
+}
+.tooltip-text{
+    text-transform: uppercase;
+    color: var(--grayish-blue);
+    letter-spacing: 0.3rem;
+}
 
+.hidden{
+    opacity:0;
+}
 
   .attribution { font-size: 11px; text-align: center; margin-top:10rem; color:var(--Light-Grayish-Blue)}
   .attribution a { color: var(--Light-Grayish-Blue) }
 
   /* RESPONSIVE */
-  /* @media only screen and (max-width:600px) {
+  @media only screen and (max-width:600px) {
        
     .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         width: 90vw;
-    } 
-    .btn{
-        font-size: 1.8rem;        
     }
-    .btn-round{
-        width: 5rem;
-        height: 5rem;       
+    .card-img{
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 1rem;  
+        width: 100%;  
+        max-height: 30%;        
+        object-fit: cover;
     }
-    .desc{        
+    .card-content{
+        border-top-right-radius: 0;
+        padding: 3rem;
+               
+    }
+    .hard{
         font-size: 1.5rem;
     }
-    .icon-star{
-        padding: 1.7rem;
+    .soft{
+        font-size: 1.3rem;
     }
-  } */
+    .tooltip{
+        /* position: absolute;
+        width: 100%;
+        bottom: 0;        
+        right: 0; */
+        position: relative;
+        border-radius: 0;
+    }
+    .tooltip::before{
+        display: none;
+    }
+    .share{
+        display: none;
+    }
+    .hidden{
+        opacity: 1;
+    }
+  }
